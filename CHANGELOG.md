@@ -68,6 +68,8 @@ For details about compatibility between different releases, see the **Commitment
 - Overwriting values in the end device wizard in the Console.
 - Redirect loops when logging out of the Console if the Console OAuth client had no logout redirect URI(s) set.
 - Event selection not working properly when the event stream is paused in the Console.
+- The port number of the `--http.redirect-to-host` option was ignored when `--http.redirect-to-tls` was used. This could lead to situations where the HTTPS server would always redirect to port 443, even if a different one was specified.
+  - If the HTTPS server is available on `https://thethings.example.com:8443`, the following config is required: `--http.redirect-to-tls --http.redirect-to-host=thethings.example.com:8443`.
 
 ### Security
 
